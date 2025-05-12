@@ -1,5 +1,5 @@
 services:
-  - type: static
+  - type: static-site
     name: mini-crm-frontend
     buildCommand: npm install && npm run build
     publishDir: ./dist
