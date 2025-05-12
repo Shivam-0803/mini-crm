@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
   const checkAuth = async () => {
     try {
       console.log('Checking authentication...');
-      const response = await axios.get('/auth/me', { withCredentials: true });
+      const response = await axios.get('https://mini-crm-backend-3ri2.onrender.com/auth/me', { withCredentials: true });
       console.log('Auth response:', response.data);
       
       if (response.data && response.data.user) {
