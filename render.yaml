@@ -23,10 +23,11 @@ services:
         value: 7d
   
   # Frontend Service
-  - type: static-site
+  - type: web
     name: mini-crm-frontend
+    env: static
     buildCommand: cd crm-frontend && npm install && npm run build
-    publishDir: crm-frontend/dist
+    staticPublishPath: crm-frontend/dist
     routes:
       - type: rewrite
         source: /*

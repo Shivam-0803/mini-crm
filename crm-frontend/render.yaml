@@ -1,8 +1,9 @@
 services:
-  - type: static-site
+  - type: web
     name: mini-crm-frontend
+    env: static
     buildCommand: npm install && npm run build
-    publishDir: ./dist
+    staticPublishPath: ./dist
     routes:
       - type: rewrite
         source: /*
