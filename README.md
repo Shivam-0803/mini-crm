@@ -1,4 +1,4 @@
-# Bolt CRM
+# Mini CRM
 
 A modern customer relationship management system with AI-powered features for segmentation and message generation.
 
@@ -72,7 +72,7 @@ PORT=3001
 NODE_ENV=development
 
 # MongoDB Configuration
-MONGODB_URI=mongodb://localhost:27017/bolt_crm
+MONGODB_URI=mongodb://localhost:27017/mini_crm
 
 # JWT Configuration
 JWT_SECRET=your_jwt_secret_here
