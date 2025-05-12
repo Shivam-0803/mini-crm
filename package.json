@@ -1,0 +1,17 @@
+{
+  "name": "bolt-crm",
+  "version": "1.0.0",
+  "description": "Bolt CRM - Marketing Campaign Management System",
+  "scripts": {
+    "install:all": "npm install && cd crm-frontend && npm install",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd crm-frontend && npm run dev",
+    "build": "cd crm-frontend && npm run build",
+    "start": "cd backend && npm start",
+    "test": "concurrently \"cd backend && npm test\" \"cd crm-frontend && npm test\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
