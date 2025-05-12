@@ -25,7 +25,7 @@ services:
   - type: web
     name: mini-crm-frontend
     env: static
-    buildCommand: cd crm-frontend && npm install && npm run build
+    buildCommand: chmod +x render-build.sh && ./render-build.sh
     staticPublishPath: ./crm-frontend/dist
     routes:
       - type: rewrite
