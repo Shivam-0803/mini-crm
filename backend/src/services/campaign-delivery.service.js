@@ -5,7 +5,7 @@ import vendorApi from './vendor-api.service.js';
 
 // Configuration
 const CONFIG = {
-  callbackUrl: process.env.DELIVERY_CALLBACK_URL || 'http://localhost:3000/api/delivery-receipts',
+  callbackUrl: process.env.DELIVERY_CALLBACK_URL || 'https://mini-crm-backend-3ri2.onrender.com/api/delivery-receipts',
   batchSize: 25, // Process customers in batches of 25
   processingInterval: 100, // Small delay between batches (ms)
 };
