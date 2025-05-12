@@ -30,7 +30,11 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 app.use(cors({
-  origin: ['https://mini-crm-frontend-cb6s.onrender.com'],
+  origin: [
+    'https://mini-crm-frontend-cb6s.onrender.com',
+    'https://mini-crm-frontend.onrender.com',
+    'http://localhost:5174'
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']

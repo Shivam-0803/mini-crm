@@ -14,6 +14,13 @@ api.interceptors.request.use(
   (config) => {
     // Ensure credentials are always included
     config.withCredentials = true;
+    
+    // Add token from localStorage if available
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    
     return config;
   },
   (error) => {
@@ -28,15 +35,19 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
-    console.error('Response error:', error.response || error);
-    
-    // Only redirect to login for 401 errors if we're not already on the login page
-    // and not trying to check authentication status
-    if (error.response?.status === 401 && 
-        !window.location.pathname.includes('login') && 
-        !error.config.url.includes('/auth/me')) {
-      window.location.href = '/login';
+    // Handle 401 errors (unauthorized)
+    if (error.response && error.response.status === 401) {
+      console.log('Authentication error - redirecting to login');
+      // Clear any stored tokens/user data
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      
+      // Redirect to login page if not already there
+      if (!window.location.pathname.includes('/login')) {
+        window.location.href = '/';
+      }
     }
+    
     return Promise.reject(error);
   }
 );
