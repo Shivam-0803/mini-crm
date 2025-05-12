@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create axios instance with default config
 const api = axios.create({
-  baseURL: 'https://mini-crm-backend-3ri2.onrender.com',
+  baseURL: 'https://mini-crm-backend-cb6s.onrender.com',
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json'

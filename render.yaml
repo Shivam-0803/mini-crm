@@ -33,4 +33,4 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_URL
-        value: https://mini-crm-backend-3ri2.onrender.com 
+        value: https://mini-crm-backend-cb6s.onrender.com 

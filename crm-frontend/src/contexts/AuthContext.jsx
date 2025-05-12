@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
     try {
       console.log('Checking authentication...');
       // Use our API instance with credentials for authentication check
-      const response = await axios.get('https://mini-crm-backend-3ri2.onrender.com/auth/me', { 
+      const response = await axios.get('https://mini-crm-backend-cb6s.onrender.com/auth/me', { 
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json'
@@ -101,7 +101,7 @@ export const AuthProvider = ({ children }) => {
     try {
       console.log('Initiating Google OAuth login...');
       // Redirect to Google OAuth endpoint
-      window.location.href = 'https://mini-crm-backend-3ri2.onrender.com/auth/google';
+      window.location.href = 'https://mini-crm-backend-cb6s.onrender.com/auth/google';
     } catch (error) {
       console.error('Login redirect failed:', error);
       setError('Login failed');

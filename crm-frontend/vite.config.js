@@ -13,11 +13,11 @@ export default defineConfig({
     port: 5174,
     proxy: {
       '/api': {
-        target: 'https://mini-crm-backend-3ri2.onrender.com',
+        target: 'https://mini-crm-backend-cb6s.onrender.com',
         changeOrigin: true,
       },
       '/auth': {
-        target: 'https://mini-crm-backend-3ri2.onrender.com',
+        target: 'https://mini-crm-backend-cb6s.onrender.com',
         changeOrigin: true,
       },
     },
