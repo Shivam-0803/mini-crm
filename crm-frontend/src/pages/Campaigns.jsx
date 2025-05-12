@@ -147,7 +147,7 @@ const CampaignForm = () => {
       
       console.log('Submitting campaign:', campaignData);
       
-      const response = await axios.post('http://localhost:3000/api/campaigns', campaignData, {
+      const response = await axios.post('https://mini-crm-backend-3ri2.onrender.com/api/campaigns', campaignData, {
         timeout: 5000,
         headers: {
           'Content-Type': 'application/json'

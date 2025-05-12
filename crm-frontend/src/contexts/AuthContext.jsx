@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
   const login = () => {
     try {
       console.log('Initiating Google OAuth login...');
-      window.location.href = 'http://localhost:3000/auth/google';
+      window.location.href = 'https://mini-crm-backend-3ri2.onrender.com/auth/google';
     } catch (error) {
       console.error('Login redirect failed:', error);
       setError('Login failed');
