@@ -9,12 +9,18 @@ router.get('/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
-router.get('/google/callback',
+// Google OAuth callback
+router.get('/google/callback', 
   passport.authenticate('google', {
-    successRedirect: process.env.CORS_ORIGIN + '?auth_success=true',
-    failureRedirect: process.env.CORS_ORIGIN + '/login?error=true'
-  })
+    failureRedirect: '/login/failed',
+    session: true
+  }),
+  (req, res) => {
+    // ✅ Redirect to your frontend after successful login
+    res.redirect('https://mini-crm-frontend-cb6s.onrender.com');
+  }
 );
+
 
 // Get current user
 router.get('/me', isAuthenticated, (req, res) => {
