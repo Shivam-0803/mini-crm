@@ -1,0 +1,39 @@
+services:
+  # Backend API Service
+  - type: web
+    name: mini-crm-backend
+    env: node
+    region: ohio
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 7d
+  
+  # Frontend Service
+  - type: web
+    name: mini-crm-frontend
+    env: node
+    region: ohio
+    plan: free
+    buildCommand: cd crm-frontend && npm install && npm run build
+    staticPublishPath: ./crm-frontend/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        value: https://mini-crm-backend-3ri2.onrender.com 

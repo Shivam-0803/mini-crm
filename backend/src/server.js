@@ -77,6 +77,11 @@ app.use((req, res, next) => {
   next();
 });
 
+// Add health check endpoint for Render
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'ok', message: 'Mini CRM API is running' });
+});
+
 // Routes
 app.use('/auth', authRoutes);
 app.use('/api/users', userRoutes);
@@ -97,7 +102,7 @@ app.use((err, req, res, next) => {
 });
 
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/bolt-crm', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/mini-crm', {
   // useNewUrlParser: true,
   // useUnifiedTopology: true,
   serverSelectionTimeoutMS: 5000,
